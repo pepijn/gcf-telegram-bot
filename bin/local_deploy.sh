@@ -1,0 +1,1 @@
+../deployment/bin/local_deploy.sh
