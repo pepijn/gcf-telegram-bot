@@ -13,6 +13,6 @@ steps:
     waitFor: ['build image']
     entrypoint: ./bin/deploy_cf.sh
     args:
-      - $REPO_NAME
+      - telegram-bot
       - $PROJECT_ID
       - /workspace
