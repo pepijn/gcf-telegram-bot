@@ -11,7 +11,7 @@ steps:
       - revision=$COMMIT_SHA
   - name: 'gcr.io/cloud-builders/gcloud'
     waitFor: ['build image']
-    entrypoint: ./bin/deploy_cf_base.sh
+    entrypoint: ./bin/deploy_cf.sh
     args:
       - telegram-bot
       - $PROJECT_ID
