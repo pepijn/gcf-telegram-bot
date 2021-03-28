@@ -2,8 +2,6 @@
 
 set -euxo pipefail
 
-shellcheck "$0"
-
 function_name="$1"
 project_id="$2"
 artifact_dir="$3"
