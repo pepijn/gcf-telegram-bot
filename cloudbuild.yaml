@@ -1,0 +1,14 @@
+steps:
+  - id: image
+    name: 'gcr.io/kaniko-project/executor'
+    args:
+      #- --context=dir://webapp
+      - --destination=gcr.io/$PROJECT_ID/telegram-bot:$COMMIT_SHA
+      - --cache=true
+      - --cache-ttl=24h
+      - --build-arg
+      - revision=$COMMIT_SHA
+  - id: update development task queue
+    name: 'gcr.io/cloud-builders/gcloud'
+    waitFor: ['image']
+    entrypoint: ./bin/deploy_cf.sh
