@@ -21,4 +21,4 @@ RUN clojure -P && clojure -A:depstar -P
 COPY . .
 
 ARG revision
-RUN ./bin/build.sh "$revision" "/usr/lib/jvm/java-11-openjdk/bin"
+RUN ./bin/build.sh "$revision" "/usr/lib/jvm/java-11-openjdk" "/workspace"
