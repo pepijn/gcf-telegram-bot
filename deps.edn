@@ -1,5 +1,5 @@
 {:deps    {org.clojure/clojure                              {:mvn/version "1.10.3"}
-           nl.epij/google-cloud-function-background-adapter {:mvn/version "0.1.0-alpha2"}
+           nl.epij/google-cloud-function-background-adapter {:mvn/version "0.1.0-alpha3"}
            hato/hato                                        {:mvn/version "0.8.0"}}
  :paths   ["src/clojure" "src/java"]
  :aliases {:depstar {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}

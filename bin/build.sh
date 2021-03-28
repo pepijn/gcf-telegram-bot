@@ -15,7 +15,7 @@ function main() {
   zip -r ../target/function.jar ./*.class metadata.json
 
   mkdir -p "$artifact_dir/artifact"
-  mv function.jar "$artifact_dir/artifact"
+  cp function.jar "$artifact_dir/artifact"
 }
 
 main "$@"
