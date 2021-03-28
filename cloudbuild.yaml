@@ -1,4 +1,6 @@
 steps:
+  - name: gcr.io/cloud-builders/git
+    args: ['submodule', 'update', '--init', '--recursive']
   - id: build image
     name: 'gcr.io/kaniko-project/executor'
     args:
