@@ -13,4 +13,5 @@ steps:
     waitFor: ['image']
     entrypoint: ./bin/deploy_cf.sh
     args:
+      - telegram-bot
       - $PROJECT_ID
