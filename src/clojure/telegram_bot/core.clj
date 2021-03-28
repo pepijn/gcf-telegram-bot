@@ -1,6 +1,5 @@
 (ns telegram-bot.core
-  (:require [clojure.edn :as edn]
-            [nl.epij.gcp.gcf.middleware :refer [wrap-json-data]]
+  (:require [nl.epij.gcp.gcf.middleware :refer [wrap-json-data]]
             [nl.epij.gcp.gcf.event :as event]
             [nl.epij.gcp.gcf.message :as message]
             [nl.epij.gcp.gcf.log :as log]
@@ -34,7 +33,7 @@
 (defn handler
   [{::event/keys [id message _timestamp _resource _attributes _event-type]}]
   (let [{::message/keys [_type _attributes data]} message
-        {status "status"
+        {status  "status"
          log-url "logUrl"} data
         data' (dissoc data
                       "buildTriggerId"

@@ -1,0 +1,33 @@
+#!/bin/bash
+# This hook is called with the following parameters:
+#
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+
+set -euxo pipefail
+
+shellcheck "$0"
+
+export LC_ALL=en_US.UTF-8
+
+function main() {
+    # shellcheck disable=SC2034
+    local remote_name="$1"
+    # shellcheck disable=SC2034
+    local remote_url="$2"
+
+    # shellcheck disable=SC2034
+    while read -r local_ref local_sha remote_ref remote_sha
+    do
+        local dir
+        set -x
+        dir="$(gmktemp --directory)"
+        set +x
+
+        git archive "$local_sha" | { cd "$dir" && tar --extract ; }
+        cd "$dir"
+	      ./bin/test.sh
+    done
+}
+
+main "$1" "$2"
