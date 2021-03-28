@@ -1,18 +1,1 @@
-steps:
-  - name: gcr.io/cloud-builders/git
-    args: ['submodule', 'update', '--init', '--recursive']
-  - id: build image
-    name: 'gcr.io/kaniko-project/executor'
-    args:
-      - --destination=gcr.io/$PROJECT_ID/telegram-bot:$COMMIT_SHA
-      - --cache=true
-      - --cache-ttl=24h
-      - --build-arg
-      - revision=$COMMIT_SHA
-  - name: 'gcr.io/cloud-builders/gcloud'
-    waitFor: ['build image']
-    entrypoint: ./bin/deploy_cf.sh
-    args:
-      - telegram-bot
-      - $PROJECT_ID
-      - /workspace
+deployment/cloudbuild.yaml
