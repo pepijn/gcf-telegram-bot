@@ -24,8 +24,10 @@ function main() {
         dir="$(gmktemp --directory)"
         set +x
 
-        git archive "$local_sha" | { cd "$dir" && tar --extract ; }
+        git-archive-all "$dir/repo.tar"
         cd "$dir"
+        tar -xvf repo.tar
+        cd repo
 	      ./bin/test.sh
     done
 }
