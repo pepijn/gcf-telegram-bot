@@ -12,3 +12,5 @@ steps:
     name: 'gcr.io/cloud-builders/gcloud'
     waitFor: ['image']
     entrypoint: ./bin/deploy_cf.sh
+    args:
+      - $PROJECT_ID
